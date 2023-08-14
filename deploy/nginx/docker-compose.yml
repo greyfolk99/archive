@@ -1,0 +1,21 @@
+version: '1.0'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./sites-available:/etc/nginx/sites-available
+      - ./sites-enabled:/etc/nginx/sites-enabled
+      - ./html:/usr/share/nginx/html
+      - ./ssl:/etc/nginx/ssl
+      - ./logs:/var/log/nginx
+    command:
+      # install certbot
+      - apt-get update
+      - apt-get install sudo
+      - sudo snap install certbot --classic

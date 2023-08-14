@@ -1,0 +1,6 @@
+/deploy/nginx/html/
+/deploy/nginx/logs/
+/deploy/nginx/sites-available/
+/deploy/nginx/sites-enabled/
+/deploy/nginx/ssl/
+/deploy/nginx/statics/

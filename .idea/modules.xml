@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/archive.iml" filepath="$PROJECT_DIR$/archive.iml" />
-      <module fileurl="file://$PROJECT_DIR$/react-client/archive.client-react.iml" filepath="$PROJECT_DIR$/react-client/archive.client-react.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/archive.iml" filepath="$PROJECT_DIR$/.idea/archive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/test-app/client/archive.apps.test-app.client.iml" filepath="$PROJECT_DIR$/apps/test-app/client/archive.apps.test-app.client.iml" />
     </modules>
   </component>
 </project>
