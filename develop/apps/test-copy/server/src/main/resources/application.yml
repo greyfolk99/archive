@@ -1,0 +1,21 @@
+# Spring Error Handling
+#server.error.whitelabel.enabled: false
+
+# CORS Settings
+server:
+  cors:
+    allowed-origins: http://localhost:3000
+    allowed-methods: GET,POST,PUT
+    with-credentials: false
+spring:
+  mvc:
+    view:
+      prefix: static/
+---
+spring.config.activate.on-profile: dev
+
+server.port: 8080
+
+
+
+

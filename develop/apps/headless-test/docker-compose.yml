@@ -1,0 +1,57 @@
+version: "3"
+services:
+  backend:
+    container_name: backend-headless-test
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: backend-headless-test:latest
+    restart: unless-stopped
+    env_file: ./backend/.env
+    volumes:
+      - ./backend:/srv/app
+    ports:
+      - "9097:1337"
+    networks:
+      - network-headless-test
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb:10.5.9
+    platform: linux/amd64
+    restart: unless-stopped
+    env_file: ./backend/.env
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    volumes:
+      - /c/Users/seo/data/mariadb:/var/lib/mysql
+    networks:
+      - network-headless-test
+
+  frontend:
+    container_name: frontend-headless-test
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: frontend-headless-test:latest
+    env_file: ./frontend/.env
+    restart: always
+    volumes:
+      - ./frontend/public:/app/public
+      - ./frontend/src:/app/src
+    ports:
+      - "9098:3000"
+    networks:
+      - network-headless-test
+    depends_on:
+      - backend-headless-test
+
+networks:
+  headless-test:
+    name: network-headless-test
+    driver: bridge
