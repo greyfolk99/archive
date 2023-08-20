@@ -1,0 +1,16 @@
+version: '3.0'
+
+services:
+  nginx:
+    image: ${APP_NAME}:${APP_VERSION}
+    container_name: ${APP_NAME}
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./sites-available:/etc/nginx/sites-available
+      - ./sites-enabled:/etc/nginx/sites-enabled
+      - ./html:/usr/share/nginx/html
+      - ./ssl:/etc/nginx/ssl
+      - ./logs:/var/log/nginx

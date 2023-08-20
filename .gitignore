@@ -1,9 +1,10 @@
-/deploy/nginx/html/
-/deploy/nginx/logs/
-/deploy/nginx/sites-available/
-/deploy/nginx/sites-enabled/
-/deploy/nginx/ssl/
-/deploy/nginx/statics/
-/deploy/apps/*/*
+/deploy/apps/my-nginx/html/*
+/deploy/apps/my-nginx/logs/*
+/deploy/apps/my-nginx/sites-available/*
+/deploy/apps/my-nginx/sites-enabled/*
+/deploy/apps/my-nginx/ssl/*
+/deploy/apps/**/temp/*
+
+**/*.env
 
 **/.idea/*
